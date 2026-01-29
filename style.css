@@ -1,40 +1,32 @@
-/* --- RESET & DASAR --- */
+/* =========================================
+   1. RESET & BASE STYLES
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Menggunakan font yang lebih modern jika tersedia */
-    scroll-behavior: smooth;
+    box-sizing: border-box; /* Memastikan padding tidak merusak ukuran elemen */
+    font-family: 'Courier New', Courier, monospace; /* Font mesin tik untuk kesan retro */
 }
 
 body {
-    background-color: #fdfdfd;
-    color: #333;
+    background-color: #0d0d0d; /* Hitam pekat */
+    color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden; /* Mencegah scroll horizontal yang tidak sengaja */
+    scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
 }
 
-/* --- ANIMASI ENTRY (FADE IN) --- */
-/* Animasi ini akan membuat konten muncul perlahan saat halaman dimuat */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-section {
-    animation: fadeIn 1s ease-out forwards; /* Menerapkan animasi muncul pada setiap section */
-}
-
-/* --- NAVIGASI --- */
+/* =========================================
+   2. NAVIGASI (Sticky & Glowing)
+   ========================================= */
 header {
-    background-color: rgba(255, 255, 255, 0.95); /* Sedikit transparan agar modern */
-    padding: 15px 10%;
-    position: fixed;
-    width: 100%;
+    background-color: #1a0000; /* Merah gelap */
+    padding: 15px 5%;
+    position: sticky; /* Menempel di atas saat di-scroll */
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-    backdrop-filter: blur(5px); /* Efek blur di belakang navbar (Glassmorphism) */
+    border-bottom: 2px solid #ff0000;
+    box-shadow: 0 0 15px #ff0000;
 }
 
 nav {
@@ -44,13 +36,14 @@ nav {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: 1px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 .logo span {
-    color: #d4a017; /* Kuning Tua Emas */
+    color: #00d9ff; /* Warna biru sebagai aksen */
+    text-shadow: 2px 2px #ff0000;
 }
 
 nav ul {
@@ -59,194 +52,165 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 25px;
+    margin-left: 20px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #444;
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
+    color: #fff;
+    font-size: 0.9rem;
     transition: 0.3s;
 }
 
 nav ul li a:hover {
-    color: #d4a017;
+    color: #ff0000;
+    text-shadow: 0 0 10px #00d9ff;
 }
 
-/* --- HERO SECTION --- */
+/* =========================================
+   3. HERO SECTION (Tampilan Utama)
+   ========================================= */
 .hero {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0 10%;
-    background: radial-gradient(circle at top right, #fff9e6, #ffffff); /* Gradasi kuning halus */
+    background: radial-gradient(circle, #1a0000 0%, #0d0d0d 100%);
 }
 
 .hero-content h1 {
-    font-size: 70px;
-    color: #222;
-    line-height: 1.1;
-    margin-bottom: 15px;
-}
-
-.hero-content p {
-    font-size: 18px;
-    color: #555;
-    max-width: 500px;
-    margin-bottom: 30px;
+    font-size: 4rem;
+    text-transform: uppercase;
+    animation: glitch 1.5s infinite; /* Efek getar pada nama */
 }
 
 .btn-hero {
     display: inline-block;
-    padding: 15px 35px;
-    background-color: #d4a017;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #ff0000;
     color: #fff;
     text-decoration: none;
-    border-radius: 50px; /* Tombol bulat lebih modern */
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(212, 160, 23, 0.3);
-    transition: 0.4s ease;
+    border: 1px solid #00d9ff;
+    transition: 0.3s;
 }
 
 .btn-hero:hover {
-    background-color: #b8860b;
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(212, 160, 23, 0.4);
+    box-shadow: 0 0 20px #ff0000;
+    background: transparent;
 }
 
 .hero-logo img {
-    width: 380px;
-    filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.1)); /* Bayangan pada gambar */
-    border-radius: 30px;
+    width: 280px;
+    border: 3px solid #1a0000;
+    box-shadow: 10px 10px 0px #ff0000, -10px -10px 0px #00d9ff;
 }
 
-/* --- ABOUT SECTION --- */
+/* =========================================
+   4. ABOUT & CONTAINER
+   ========================================= */
 .container {
-    padding: 100px 10%;
+    padding: 80px 10%;
 }
 
 .about {
-    background-color: #fff;
     text-align: center;
 }
 
-.about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 18px;
-    color: #555;
+.about h2 {
+    color: #00d9ff;
+    margin-bottom: 20px;
 }
 
-h2 {
-    font-size: 36px;
-    margin-bottom: 50px;
-    text-align: center;
-    position: relative;
-}
-
-h2::after {
-    content: '';
-    width: 60px;
-    height: 5px;
-    background: #d4a017;
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2px;
-}
-
-/* --- PROYEK SECTION (GRID) --- */
+/* =========================================
+   5. PROYEK (Grid System agar Sejajar)
+   ========================================= */
 .bg-light {
-    background-color: #f4f4f4;
+    background-color: #111; /* Latar belakang abu gelap agar kontras */
 }
 
 .proyek-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    /* Membuat kolom otomatis: minimal 280px, maksimal sisa ruang */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px;
+    margin-top: 30px;
 }
 
 .proyek-card {
-    background: #fff;
+    background: #1a0000;
+    border: 1px solid #333;
     text-decoration: none;
-    border-radius: 15px;
+    color: #fff;
+    transition: 0.3s;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi membal (pop-up) */
 }
 
 .proyek-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border-color: #ff0000;
+    transform: translateY(-5px);
 }
 
 .proyek-card img {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
+    height: 180px;
+    object-fit: cover; /* Gambar tidak akan gepeng */
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+
+.proyek-card:hover img {
+    filter: grayscale(0%); /* Gambar jadi berwarna saat hover */
 }
 
 .proyek-info {
-    padding: 25px;
+    padding: 15px;
+    border-top: 2px solid #ff0000;
 }
 
-.proyek-info h3 {
-    margin-bottom: 8px;
-    color: #222;
-}
-
-.proyek-info p {
-    color: #d4a017;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-/* --- MEDSOS --- */
+/* =========================================
+   6. MEDSOS & FOOTER
+   ========================================= */
 .medsos-list {
     display: flex;
     justify-content: center;
-    gap: 50px;
-    margin-top: 20px;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .medsos-item {
     text-decoration: none;
+    color: #fff;
     text-align: center;
-    transition: 0.3s;
 }
 
 .medsos-item img {
-    width: 45px;
+    width: 40px;
     display: block;
     margin: 0 auto 10px;
-    filter: grayscale(100%); /* Warna abu-abu saat diam */
-    transition: 0.3s;
 }
 
-.medsos-item:hover img {
-    filter: grayscale(0%); /* Berwarna kembali saat hover */
-    transform: rotate(10deg); /* Sedikit miring saat hover */
-}
-
-.medsos-item span {
-    font-weight: bold;
-    color: #777;
-    font-size: 14px;
-}
-
-.medsos-item:hover span {
-    color: #d4a017;
-}
-
-/* --- FOOTER --- */
 footer {
-    background-color: #1a1a1a;
-    color: #888;
-    padding: 40px 0;
     text-align: center;
-    font-size: 14px;
+    padding: 30px;
+    border-top: 1px solid #ff0000;
+    color: #555;
+}
+
+/* =========================================
+   7. ANIMASI & RESPONSIVE
+   ========================================= */
+@keyframes glitch {
+    0% { text-shadow: 2px 2px #ff0000, -2px -2px #00d9ff; }
+    25% { text-shadow: -2px 2px #ff0000, 2px -2px #00d9ff; }
+    50% { text-shadow: 2px -2px #ff0000, -2px 2px #00d9ff; }
+    75% { text-shadow: -2px -2px #ff0000, 2px 2px #00d9ff; }
+    100% { text-shadow: 2px 2px #ff0000, -2px -2px #00d9ff; }
+}
+
+@media (max-width: 768px) {
+    .hero { flex-direction: column; text-align: center; }
+    .hero-content h1 { font-size: 2.5rem; }
+    nav ul { display: none; } /* Sembunyikan menu di HP agar tidak berantakan */
 }
